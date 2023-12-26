@@ -1,3 +1,5 @@
+# Google Api Key
+This Project need a Google Api key to run Which could be get on google developers portal and replaced at Constants.js file 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
