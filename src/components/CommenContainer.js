@@ -1,31 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { GOOGLE_API_KEY, YOUTUBE_COMMENTS_API } from '../utils/constants';
 
-function CommenContainer() {
-    const comnt = [{
-        name:"Vikas Thakur",
-        text:"Very nice video",
-        replies:[{
-            name:"Vikas Thakur",
-        text:"Very nice video",
-        replies:[{
-            name:"Vikas Thakur",
-            text:"Very nice video",
-        }] 
-        }]
-      },
-      {
-        name:"Vikas Thakur",
-        text:"Very nice video",
-        replies:[{
-            name:"Vikas Thakur",
-        text:"Very nice video",
-        replies:[{
-            name:"Vikas Thakur",
-            text:"Very nice video",
-        }] 
-        }]
-      },
-    ]  
+function CommenContainer({id}) {
+   
+    const [comnt,setComnt] = useState([]);
     const CommentList = ({data})=>{
         
         return (
@@ -37,22 +15,32 @@ function CommenContainer() {
         )
       }
       const Comment = ({info})=>{
+        const {snippet} = info;
         
         return (
          <> 
          <div className='flex'>
-            <img className='w-10 p-2' alt='user' src='https://cdn-icons-png.flaticon.com/512/666/666201.png'/>
+            <img className='w-10 h-12 p-2 rounded-2xl' alt='user' src={snippet?.topLevelComment?.snippet.authorProfileImageUrl || snippet.authorProfileImageUrl}/>
            <div>
-            <h4 className='font-semibold'>{info.name}</h4>
-            <p className=''>{info.text}</p>
+            <h4 className='font-semibold'><a href={snippet?.topLevelComment?.snippet.authorChannelUrl || snippet.authorChannelUrl}>{snippet?.topLevelComment?.snippet.authorDisplayName || snippet.authorDisplayName}</a></h4>
+            <p className=''>{snippet?.topLevelComment?.snippet.textOriginal || snippet.textOriginal}</p>
             </div>
             </div>
             
             <div className='ml-2 p-2 border-l-4'>
-                <CommentList data = {info.replies}/>
+                <CommentList data = {info?.replies?.comments}/>
             </div>
          </>   
         )
+      }
+      useEffect(()=>{
+        getComment();
+      },[]);
+      const getComment = async () =>{
+        const d = await fetch(YOUTUBE_COMMENTS_API+id+"&key="+GOOGLE_API_KEY);
+        const j = await d.json();
+        setComnt(j.items);
+        console.log(j);
       }
   return (
     <div>
