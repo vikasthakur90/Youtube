@@ -17,7 +17,7 @@ function App() {
     },
   {
     path:'/searchVideo',
-    element:<SearchVideo />
+    element:<SearchVideo /> 
   },
   {
     path:'/watch',

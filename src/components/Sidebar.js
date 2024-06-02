@@ -17,10 +17,11 @@ function Sidebar() {
         const json = await data.json();
         dispatch(addVideo(json.items));
         }
-    const list = ["Home","Shorts","Videos","Lives","Music","Sports","Comedy","Movies"];
+    const list = ["Shorts","Videos","Lives","Music","Sports","Comedy","Movies"];
   return (
     <div className='shadow-lg w-28 mr-3'>
         <ul>
+        <li className='font-semibold px-4 py-2 hover:bg-slate-200'><Link to={'/'}>Home</Link></li>
         {list.map((e)=><li className='font-semibold px-4 py-2 hover:bg-slate-200' onClick={()=>handleClick(e)}><Link to={'searchvideo'}>{e}</Link></li>)}
         </ul> 
      
