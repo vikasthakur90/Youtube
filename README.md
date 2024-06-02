@@ -67,9 +67,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### ScreenShot
 ![image](https://github.com/vikasthakur90/Youtube/assets/66615520/45a2cf2b-5482-4984-8675-76688bbeff42)
+<br>
 
 ![image](https://github.com/vikasthakur90/Youtube/assets/66615520/ac5d9082-da1d-42a0-9d9c-0cc45b6c8615)
-
+<br>
 ![image](https://github.com/vikasthakur90/Youtube/assets/66615520/38db5091-19c8-4749-983c-f59b5944c776)
 
 ![image](https://github.com/vikasthakur90/Youtube/assets/66615520/9be85c54-b054-4a7e-a45d-b0b2a4f1f9dc)
